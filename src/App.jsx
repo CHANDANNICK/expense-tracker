@@ -6,36 +6,34 @@ import NewExpense from './components/NewExpense/NewExpense';
 const App = (props) => {
 	const dummyExpense = [
 		{
-			id: useId(),
+			id: 1,
 			title: 'Mobile',
 			amount: 1299,
-			date: new Date(2022, 12, 20),
+			date: new Date(2020, 12, 20),
 		},
 		{
-			id: useId(),
+			id: 2,
 			title: 'Car',
 			amount: 33333,
 			date: new Date(2022, 9, 23),
 		},
 		{
-			id: useId(),
+			id: 3,
 			title: 'Shoes',
 			amount: 213,
-			date: new Date(2022, 12, 20),
+			date: new Date(2020, 12, 20),
 		},
 		{
-			id: useId(),
+			id: 4,
 			title: 'House',
 			amount: 2000000,
-			date: new Date(2022, 9, 23),
+			date: new Date(2021, 9, 23),
 		},
 	];
 	const [expenses, setExpenses] = useState(dummyExpense);
 
-	// FUNCTION to handle the received data from it's child component NewExpense
+	// FUNCTION  to handle the received data from it's child component NewExpense
 	const addExpenseHandler = (expense) => {
-		// console.log(expense);
-		// console.log(dummyExpense);
 		setExpenses((prevExpense) => {
 			return [expense, ...prevExpense];
 		});
@@ -48,7 +46,7 @@ const App = (props) => {
 	return (
 		<div className='App'>
 			<NewExpense onAddExpense={addExpenseHandler} />
-			<Expenses items={expenses} onSelectFilteredYear={addFilteredYear} />
+			<Expenses items={expenses} />
 		</div>
 	);
 };
