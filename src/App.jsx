@@ -1,9 +1,10 @@
-import React, { useState, useId } from 'react';
+import React, { useState, useEffect } from 'react';
 import './assets/css/App.css';
 import Expenses from './components/Expenses/Expenses';
 import NewExpense from './components/NewExpense/NewExpense';
 
 const App = (props) => {
+	const [id, setId] = useState(4);
 	const dummyExpense = [
 		{
 			id: 1,
@@ -34,13 +35,22 @@ const App = (props) => {
 
 	// FUNCTION  to handle the received data from it's child component NewExpense
 	const addExpenseHandler = (expense) => {
+		setId((prevId) => {
+			return prevId + 1;
+		});
 		setExpenses((prevExpense) => {
+			expense = {
+				...expense,
+				id: id + 1,
+			};
 			return [expense, ...prevExpense];
 		});
 	};
-	console.log('Expenses after update', expenses);
+
+	// console.log('id is:', id);
+	// console.log('Expenses after update', expenses);
 	const addFilteredYear = (filteredYear) => {
-		console.log('Selected Year From App.js is ', filteredYear);
+		// console.log('Selected Year From App.js is ', filteredYear);
 	};
 
 	return (

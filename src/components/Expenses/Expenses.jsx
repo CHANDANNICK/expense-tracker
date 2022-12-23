@@ -9,25 +9,21 @@ const Expenses = (props) => {
 	const [expenses, setExpenses] = useState(props.items);
 
 	useEffect(() => {
-		setExpenses(props.items);
-	}, [props.items]);
+	  setExpenses(props.items);
+	}, [props])
+	
 
 	const filterChangeHandler = (selectedYear) => {
-		console.log('selected year is :', selectedYear);
 		setFilteredYear(selectedYear);
+		if (parseInt(selectedYear) === 0) {
+			setExpenses(props.items);
+		} else {
+			var filteredExpenses = props.items.filter((item) => {
+				return item.date.getFullYear() === parseInt(selectedYear);
+			});
+			setExpenses(filteredExpenses);
+		}
 	};
-	console.log(
-		'Expenses to be rendered after update from expenses is :',
-		props.items
-	);
-	// props.onSelectFilteredYear(filteredYear);
-
-	// if (filteredYear !== '' || filteredYear !== null) {
-	// 	var filteredExpenses = props.items.filter((item) => {
-	// 		return item.date.getFullYear() == filteredYear;
-	// 	});
-	// 	setExpenses(filteredExpenses);
-	// }
 
 	return (
 		<Card className='expenses'>

@@ -4,7 +4,7 @@ import '../../assets/css/ExpenseItem.css';
 import Card from '../Ui/Card';
 
 const ExpenseItems = (props) => {
-	console.log("Expenses to be rendered after update is :",props.title);
+	// console.log("Expenses to be rendered after update is :",props.title);
 	// HOOKS
 	// const [title, setTitle] = useState(props.title);
 

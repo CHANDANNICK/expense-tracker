@@ -9,15 +9,15 @@ const ExpenseForm = (props) => {
 	// FUNCTION  Change Handler's Function
 	const titleChangeHandler = (event) => {
 		setTitle(event.target.value);
-		console.log(title);
+		// console.log(title);
 	};
 	const dateChangeHandler = (event) => {
 		setDate(event.target.value);
-		console.log(date);
+		// console.log(date);
 	};
 	const amountChangeHandler = (event) => {
 		setAmount(event.target.value);
-		console.log(amount);
+		// console.log(amount);
 	};
 
 	// INFO  // FUNCTION  Submit handler
