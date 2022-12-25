@@ -9,9 +9,8 @@ const Expenses = (props) => {
 	const [expenses, setExpenses] = useState(props.items);
 
 	useEffect(() => {
-	  setExpenses(props.items);
-	}, [props])
-	
+		setExpenses(props.items);
+	}, [props]);
 
 	const filterChangeHandler = (selectedYear) => {
 		setFilteredYear(selectedYear);
@@ -31,7 +30,11 @@ const Expenses = (props) => {
 				selected={filteredYear}
 				onChangeFilter={filterChangeHandler}
 			/>
-			<ExpenseList items={expenses} />
+			{expenses.length > 0 ? (
+				<ExpenseList items={expenses} />
+			) : (
+				'No data found'
+			)}
 		</Card>
 	);
 };

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './assets/css/App.css';
 import Expenses from './components/Expenses/Expenses';
 import NewExpense from './components/NewExpense/NewExpense';
@@ -45,12 +45,6 @@ const App = (props) => {
 			};
 			return [expense, ...prevExpense];
 		});
-	};
-
-	// console.log('id is:', id);
-	// console.log('Expenses after update', expenses);
-	const addFilteredYear = (filteredYear) => {
-		// console.log('Selected Year From App.js is ', filteredYear);
 	};
 
 	return (
